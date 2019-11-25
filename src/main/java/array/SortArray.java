@@ -115,6 +115,18 @@ public class SortArray {
         return result;
     }
 
+    public int remove(int index) {
+        int result = data[index];
+        if (index >= size) {
+            throw new ArrayIndexOutOfBoundsException(size);
+        }
+        //如果移除的位置没有值，直接返回
+        if (result == -1) {
+            return result;
+        }
+        backward(data, index, size - 1, 0);
+        return result;
+    }
 
     /**
      * sort  0：向前移位  1：向后移位
@@ -147,11 +159,17 @@ public class SortArray {
         }
 
         System.out.println("-----------------------");
-        int index = 3;
+        int index = 0;
         int value = 10;
         int update = sortArray.update(index, value);
         System.out.println("index = " + index + " before update = " + update + "; after update=" + value);
 
+        for (int i = 0; i < 16; i++) {
+            System.out.println("i=" + i + ":" + sortArray.get(i));
+        }
+
+        int remove = sortArray.remove(index);
+        System.out.println("index = " + index + ";  remove=" + remove);
         for (int i = 0; i < 16; i++) {
             System.out.println("i=" + i + ":" + sortArray.get(i));
         }
