@@ -1,13 +1,11 @@
 package linklist;
 
-/**
- * 单链表
- */
-public class SingleLinkList<T> {
+public class DoubleLinkList<T> {
 
     class Node {
         private T val;
         private Node next;
+        private Node prev;
 
         public T getVal() {
             return val;
@@ -25,6 +23,14 @@ public class SingleLinkList<T> {
             this.next = next;
         }
 
+        public Node getPrev() {
+            return prev;
+        }
+
+        public void setPrev(Node prev) {
+            this.prev = prev;
+        }
+
         public Node() {
         }
 
@@ -38,10 +44,11 @@ public class SingleLinkList<T> {
         }
     }
 
-    //头指针
     private Node head;
-    //链表长度
-    private int size = 0;
+
+    private Node last;
+
+    private int size;
 
     public Node getHead() {
         return head;
@@ -59,8 +66,8 @@ public class SingleLinkList<T> {
         this.size = size;
     }
 
-    public SingleLinkList() {
-        this.head = new Node(null, null);
+    public DoubleLinkList() {
+        this.head = new Node();
         this.size = 0;
     }
 
@@ -125,26 +132,12 @@ public class SingleLinkList<T> {
         Node cur = this.head;
         while (cur != null) {
             if (cur.val != null) {
-                System.out.print(cur.val+"->");
+                System.out.print(cur.val + "->");
             }
             cur = cur.next;
         }
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        SingleLinkList<Integer> singleLinkList = new SingleLinkList<>();
-        for (int i = 1; i < 10; i++) {
-            singleLinkList.addLast(i);
-        }
-        singleLinkList.display();
-        singleLinkList.remove(6);
-        singleLinkList.display();
-       /* for (int i = 1; i <= singleLinkList.getSize(); i++) {
-            System.out.println(singleLinkList.get(i));
-        }*/
-
-
-    }
 
 }
