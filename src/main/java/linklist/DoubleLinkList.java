@@ -58,6 +58,14 @@ public class DoubleLinkList<T> {
         this.head = head;
     }
 
+    public Node getLast() {
+        return last;
+    }
+
+    public void setLast(Node last) {
+        this.last = last;
+    }
+
     public int getSize() {
         return size;
     }
@@ -67,25 +75,25 @@ public class DoubleLinkList<T> {
     }
 
     public DoubleLinkList() {
-        this.head = new Node();
+        Node node = new Node();
+        head = node;
+        last = node;
         this.size = 0;
     }
 
     public void addFirst(T t) {
         Node node = new Node(t);
-        node.next = head;
-        this.head = node;
+        head.next = node;
+        node.prev = head;
+        head = node;
         this.size++;
     }
 
     public void addLast(T t) {
         Node node = new Node(t);
-        Node tmp = head;
-        while (tmp.next != null) {
-            tmp = tmp.next;
-        }
-        tmp.next = node;
-        this.size++;
+        last.next = node;
+        node.prev = last;
+        last = node;
     }
 
     private void rangCheck(int index) {
@@ -102,7 +110,9 @@ public class DoubleLinkList<T> {
         }
         Node node = new Node(t);
         node.next = preHead.next;
+        preHead.next.prev = node;
         preHead.next = node;
+        node.prev = preHead;
         this.size++;
     }
 
@@ -112,10 +122,8 @@ public class DoubleLinkList<T> {
         for (int i = 0; i < index - 1; i++) {
             prev = prev.next;
         }
-
-        Node cur = prev.next;
-        prev.next = cur.next;
-        cur.next = null;
+        prev.next = prev.next.next;
+        prev.next.prev = prev;
         size--;
     }
 
