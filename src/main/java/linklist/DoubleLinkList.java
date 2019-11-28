@@ -83,8 +83,8 @@ public class DoubleLinkList<T> {
 
     public void addFirst(T t) {
         Node node = new Node(t);
-        head.next = node;
-        node.prev = head;
+        node.next = head;
+        head.prev = node;
         head = node;
         this.size++;
     }
@@ -94,6 +94,7 @@ public class DoubleLinkList<T> {
         last.next = node;
         node.prev = last;
         last = node;
+        this.size++;
     }
 
     private void rangCheck(int index) {
@@ -122,8 +123,11 @@ public class DoubleLinkList<T> {
         for (int i = 0; i < index - 1; i++) {
             prev = prev.next;
         }
+        Node cur = prev.next;
         prev.next = prev.next.next;
         prev.next.prev = prev;
+        cur.next = null;
+        cur.prev = null;
         size--;
     }
 
@@ -136,7 +140,7 @@ public class DoubleLinkList<T> {
         return cur.val;
     }
 
-    public void display() {
+    public void displayLeft() {
         Node cur = this.head;
         while (cur != null) {
             if (cur.val != null) {
@@ -147,5 +151,35 @@ public class DoubleLinkList<T> {
         System.out.println();
     }
 
+    public void displayRight() {
+        Node cur = this.last;
+        while (cur != null) {
+            if (cur.val != null) {
+                System.out.print( cur.val+"->");
+            }
+            cur = cur.prev;
+        }
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+        DoubleLinkList doubleLinkList = new DoubleLinkList<Integer>();
+        for (int i = 1; i <= 10; i++) {
+            doubleLinkList.addFirst(i);
+        }
+        doubleLinkList.displayLeft();
+        doubleLinkList.displayRight();
+        doubleLinkList.remove(5);
+        System.out.println(" ==================== ");
+        doubleLinkList.displayLeft();
+        doubleLinkList.displayRight();
+        doubleLinkList.add(12,5);
+        System.out.println(" ==================== ");
+        doubleLinkList.displayLeft();
+        doubleLinkList.displayRight();
+        System.out.println(" ==================== ");
+        System.out.println(doubleLinkList.get(5));
+    }
 
 }
