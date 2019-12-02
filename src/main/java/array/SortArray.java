@@ -2,6 +2,8 @@ package array;
 
 import java.util.Random;
 
+import static utils.CommonUtils.backward;
+
 /**
  * 实现一个大小固定的有序数组(在这里只考虑自然数,进行升序排列)，实现增删查改
  */
@@ -128,25 +130,6 @@ public class SortArray {
         return result;
     }
 
-    /**
-     * sort  0：向前移位  1：向后移位
-     *
-     * @param a
-     * @param src
-     * @param desc
-     * @param sort
-     */
-    public void backward(int[] a, int src, int desc, int sort) {
-        if (sort == 0) {
-            while (src < desc) {
-                a[src] = a[++src];
-            }
-        } else if (sort == 1) {
-            while (desc > src) {
-                a[desc] = a[--desc];
-            }
-        }
-    }
 
     public static void main(String[] args) {
         SortArray sortArray = new SortArray(16);
