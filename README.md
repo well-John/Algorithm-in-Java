@@ -15,3 +15,7 @@
 * 队列
   - [数组实现的队列](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/queue/ArrayQueue.java)
   - [链表实现的队列](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/queue/LinkListQueue.java)
+  - [循环链表](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/queue/CycleQueue.java)
+* 递归
+  - [斐波那契数列](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/recursion/Fibonacci.java)
+  - [n的阶乘](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/recursion/Factorial.java)

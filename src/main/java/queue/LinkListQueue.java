@@ -11,30 +11,41 @@ public class LinkListQueue {
 
     private int size;
 
+    private int front;
+
+    private int rear;
+
     public LinkListQueue(int size) {
         this.size = size;
         data = new SingleLinkList<>();
+        this.front = 0;
+        this.rear = 0;
     }
 
+
     public boolean push(Integer val) {
-        if (data.getSize() == size) {
+        if (this.rear >= this.size) {
             return false;
         }
         data.addLast(val);
+        rear++;
         return true;
     }
 
     public Integer pop() {
-        Integer result = null;
-        if (data.getSize() > 0) {
-            result = data.get(1);
-            data.remove(1);
+        if (front == rear) {
+            return null;
         }
+        int result = data.get(front + 1);
+        front++;
         return result;
     }
 
     public void display() {
-        data.display();
+        for (int i = front; i < rear; i++) {
+            System.out.println(data.get(i + 1));
+        }
+
     }
 
     public static void main(String[] args) {
