@@ -19,3 +19,16 @@
 * 递归
   - [斐波那契数列](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/recursion/Fibonacci.java)
   - [n的阶乘](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/recursion/Factorial.java)
+  - [全排列](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/recursion/Permutation.java)
+* 排序
+  - [冒泡排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/BubbleSort.java)
+  - [插入排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/InsertSort.java)
+  - [选择排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/SelectionSort.java)
+  - [快速排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/QuickSort.java)
+  - [归并排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/MergeSort.java)
+  - [堆排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/MergeSort.java)
+* 查找
+ - [二分查找](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch.java)
+ - [二分查找-查找第一个大于等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch1.java)
+ - [二分查找-查找最后一个小于等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch2.java)
+ - [二分查找-查找最后一个等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch3.java)
