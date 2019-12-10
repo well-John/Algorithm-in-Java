@@ -35,11 +35,42 @@ public class BinarySearchTree {
         }
 
         //要删除的节点还有两个子节点
+        if (p.left != null && p.right != null) {
+            Node tmp = p.right;
+            while (tmp.left != null) {
+                tmp = tmp.left;
+            }
+            p.data = tmp.data;
+            p = tmp;
+        }
 
 
-        //要删除的节点时叶子节点或者只有一个节点
+        //要删除的节点为叶子节点
+        if (p.left == null && p.right == null) {
+            if (pp.left == p) {
+                pp.left = null;
+            } else {
+                pp.right = null;
+            }
+        }
 
-        //要删除的节点为根节点
+
+        //要删除的节点只有一个子 节点(左节点/右节点)
+        if ((p.left == null && p.right != null) || (p.left != null && p.right == null)) {
+            Node child;
+            if (p.left != null) {
+                child = p.left;
+            } else {
+                child = p.right;
+            }
+            if (pp.left == p) {
+                pp.left = child;
+            } else {
+                pp.right = child;
+            }
+        }
+
+
     }
 
 
