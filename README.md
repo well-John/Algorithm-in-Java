@@ -28,7 +28,9 @@
   - [归并排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/MergeSort.java)
   - [堆排序](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/sort/MergeSort.java)
 * 查找
- - [二分查找](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch.java)
- - [二分查找-查找第一个大于等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch1.java)
- - [二分查找-查找最后一个小于等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch2.java)
- - [二分查找-查找最后一个等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch3.java)
+  - [二分查找](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch.java)
+  - [二分查找-查找第一个大于等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch1.java)
+  - [二分查找-查找最后一个小于等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch2.java)
+  - [二分查找-查找最后一个等于给定值的下标](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/search/BinarySearch3.java)
+* 树
+  - [二叉查找树(包括查询、删除、新增、遍历)](https://github.com/well-John/Algorithm-in-Java/blob/master/src/main/java/tree/BinarySearchTree.java)
