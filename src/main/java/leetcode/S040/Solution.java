@@ -1,16 +1,8 @@
-package leetcode.S039;
+package leetcode.S040;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Solution {
-
     private List<List<Integer>> res = new ArrayList<>();
     private int[] candidates;
     private int len;
@@ -18,7 +10,10 @@ public class Solution {
     private void findCombinationSum(int residue, int start, Stack<Integer> pre) {
         if (residue == 0) {
             // Java 中可变对象是引用传递，因此需要将当前 path 里的值拷贝出来
-            res.add(new ArrayList<>(pre));
+            List<Integer> list = new ArrayList<>(pre);
+            if (!isHave(list)) {
+                res.add(list);
+            }
             return;
         }
         // 优化添加的代码2：在循环的时候做判断，尽量避免系统栈的深度
@@ -27,12 +22,12 @@ public class Solution {
         for (int i = start; i < len && residue - candidates[i] >= 0; i++) {
             pre.add(candidates[i]);
             // 【关键】因为元素可以重复使用，这里递归传递下去的是 i 而不是 i + 1
-            findCombinationSum(residue - candidates[i], i, pre);
+            findCombinationSum(residue - candidates[i], i + 1, pre);
             pre.pop();
         }
     }
 
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         int len = candidates.length;
         if (len == 0) {
             return res;
@@ -45,11 +40,29 @@ public class Solution {
         return res;
     }
 
+    public boolean isHave(List<Integer> list) {
+        for (List<Integer> t : res) {
+            if (t.size() == list.size()) {
+                int size = t.size();
+                while (size > 0 && t.get(size - 1).equals(list.get(size - 1))) {
+                    size--;
+                }
+                if (size == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
-        int[] candidates = {2, 3, 6, 7};
-        int target = 7;
+        int[] candidates = {2,5,2,1,2};
+        int target = 5;
         Solution solution = new Solution();
-        List<List<Integer>> combinationSum = solution.combinationSum(candidates, target);
+        List<List<Integer>> combinationSum = solution.combinationSum2(candidates, target);
         System.out.println(combinationSum);
     }
+
+
 }
