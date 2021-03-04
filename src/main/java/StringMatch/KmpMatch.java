@@ -42,7 +42,7 @@ public class KmpMatch {
     }
 
     public static void main(String[] args) {
-        int index = kmpSearch("abacababc", "abab");
+        int index = kmpSearch("abacbabc", "cbab");
         System.out.println(index);
     }
 
