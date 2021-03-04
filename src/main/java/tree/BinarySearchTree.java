@@ -133,6 +133,37 @@ public class BinarySearchTree {
         }
     }
 
+
+    //前序遍历(非递归v2)
+    public void preOrderNoRecursion_v2(Node root) {
+        if (root == null)
+            return;
+        Stack<Node> stack = new Stack();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            Node node = stack.peek();
+            if (node != null) {
+                stack.pop();
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+
+                stack.push(node);
+                stack.push(null);
+            } else {
+                stack.pop();
+                node = stack.pop();
+                System.out.print(node.data + " ");
+            }
+        }
+    }
+
+
     //中序遍历(递归)
     public void middleOrder(Node root) {
         if (root == null) {
@@ -154,6 +185,37 @@ public class BinarySearchTree {
                 root = stack.pop();
                 System.out.print(root.data + " ");
                 root = root.right;
+            }
+        }
+    }
+
+    //中序遍历(非递归v2)
+    public void middleOrderNoRecursion_v2(Node root) {
+        if (root == null)
+            return;
+        Stack<Node> stack = new Stack();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            Node node = stack.peek();
+            if (node != null) {
+                stack.pop();
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+
+                stack.push(node);
+                stack.push(null);
+
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+
+
+            } else {
+                stack.pop();
+                node = stack.pop();
+                System.out.print(node.data + " ");
             }
         }
     }
@@ -190,6 +252,40 @@ public class BinarySearchTree {
         }
     }
 
+    //后序遍历(非递归v2)
+    public void postOrderNoRecursion_v2(Node root) {
+        if (root == null)
+            return;
+        Stack<Node> stack = new Stack();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            Node node = stack.peek();
+            if (node != null) {
+                stack.pop();
+                stack.push(node);
+                stack.push(null);
+
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+
+
+            } else {
+                stack.pop();
+                node = stack.pop();
+                System.out.print(node.data + " ");
+            }
+        }
+    }
+
+
+
+
     //层级遍历
     public void levelOrder(Node root) {
         if (root == null) return;
@@ -204,7 +300,7 @@ public class BinarySearchTree {
             if (node.right != null) {
                 queue.add(node.right);
             }
-            System.out.print(node.data+" ");
+            System.out.print(node.data + " ");
         }
     }
 
@@ -225,6 +321,8 @@ public class BinarySearchTree {
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
         int[] arr = new int[]{8, 6, 10, 5, 7, 9, 12, 2, 4};
+        //int[] arr = new int[]{5,4,6,1,2};
+
         for (int i = 0; i < arr.length; i++) {
             tree.insert(arr[i]);
         }
@@ -242,12 +340,29 @@ public class BinarySearchTree {
         System.out.println("前序遍历(非递归)：");
         tree.preOrderNoRecursion(tree.root);
         System.out.println();
+
+        System.out.println("前序遍历(非递归V2)：");
+        tree.preOrderNoRecursion_v2(tree.root);
+        System.out.println();
+
         System.out.println("中序遍历(非递归)：");
         tree.middleOrderNoRecursion(tree.root);
         System.out.println();
+
+        System.out.println("中序遍历(非递归V2)：");
+        tree.middleOrderNoRecursion_v2(tree.root);
+        System.out.println();
+
+
         System.out.println("后序遍历(非递归)：");
         tree.postOrderNoRecursion(tree.root);
         System.out.println();
+
+        System.out.println("后序遍历(非递归V2)：");
+        tree.postOrderNoRecursion_v2(tree.root);
+        System.out.println();
+
+
         System.out.println("层次遍历：");
         tree.levelOrder(tree.root);
         System.out.println();
