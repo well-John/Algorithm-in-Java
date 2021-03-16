@@ -51,45 +51,36 @@ public class Solution {
         long val = 0;
         while (i < length && Character.isDigit(s.charAt(i))) {
             int value = s.charAt(i) - '0';
-            if (value != 0) {
-                val = (val * 10 + value);
-                if (val > Integer.MAX_VALUE) {
+            if (value != 0 || size != 0) {
+                if (flag == 1) {
+                    val = val * 10 + value;
+                } else {
+                    val = val * 10 - value;
+                }
+                if (val >= Integer.MAX_VALUE) {
                     val = Integer.MAX_VALUE;
                     break;
                 }
-                size++;
-            } else {
-                if (size != 0) {
-                    val = val * 10 + value;
-                    if (val > Integer.MAX_VALUE) {
-                        val = Integer.MAX_VALUE;
-                        break;
-                    }
-                    size++;
+
+                if (val <= Integer.MIN_VALUE) {
+                    val = Integer.MIN_VALUE;
+                    break;
                 }
+                size++;
             }
             i++;
         }
-
-        val = flag == 1 ? val : -val;
-
-        if (val >= Integer.MAX_VALUE) {
-            return Integer.MAX_VALUE;
-        } else if (val <= Integer.MIN_VALUE) {
-            return Integer.MIN_VALUE;
-        } else {
-            return (int) val;
-        }
+        return (int) val;
     }
 
 
     public static void main(String[] args) {
-        int atoi = new Solution().myAtoi("9223372036854775808");
+        int atoi = new Solution().myAtoi("91283472332");
         System.out.println(atoi);
-        System.out.println(Long.MAX_VALUE + 1);
-        System.out.println(-Long.MAX_VALUE);
-        System.out.println(Long.MIN_VALUE);
-        System.out.println(-Long.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(-Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(-Integer.MIN_VALUE);
 
     }
 }
