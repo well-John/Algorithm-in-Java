@@ -49,7 +49,7 @@ public class HeapSort {
 
     public static void main(String[] args) {
 
-        int[] a = {1, 4, 5, 2, 3, 4, 7, 9, 0};
+        int[] a ={1, 5, 6, 7, 0, 4, 2, 8};
         HeapSort.sort(a);
         System.out.println(Arrays.toString(a));
     }
