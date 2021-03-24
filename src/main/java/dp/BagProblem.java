@@ -6,6 +6,7 @@ package dp;
 public class BagProblem {
 
 
+
     public static int bagProblemByOneArray(int[] weight, int[] value, int maxWeight) {
         int[] dp = new int[maxWeight + 1];
         for (int i = 0; i < weight.length; i++) {
